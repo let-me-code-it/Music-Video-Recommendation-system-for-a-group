@@ -1,7 +1,9 @@
 # Music-Video-Recommendation-system-for-a-group
 
-#Recommendation systems are made to recommend  content/items to an user based many categories such as User-User,Item-Item and
+#Recommendation systems are made to recommend  content/items to an user based many categories such as User-User,Content and
 Hybrid Model of the two.
+
+Content Based Filtering- They suggest similar items based on a particular item. This system uses item metadata, such as genre, director, description, actors, etc. for movies, to make these recommendations. The general idea behind these recommender systems is that if a person liked a particular item, he or she will also like an item that is similar to it.
 
 The above stated models work well when the user watches contents in Online Video on demand services such as Netflix,Youtube but
 when the same service is being used by a group of people in laptop,there are no recommendation system to recommend content when a number of
