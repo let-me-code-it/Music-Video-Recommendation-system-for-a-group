@@ -13,9 +13,11 @@ There are a number of Scenarios where there is a necessity of a group recommenda
 2.Gymnasium
 3.Music systems in Automobiles
 
-To recommend Music and Videoo contents to a number of people, we can analyze their previous watch history and recommend contents using 
+To recommend Music and Videoo contents to a number of people, we need to analyze their previous watch history and recommend contents using 
 the Item-Item recommendation system.
 
 To get the Previous watch history of the entire Audience, we need to make a setup in the service where we are applying this system.
 For example we are using this system in Netflix,we need to make a personal group inside the netflix application 
 and add all the people in the audience and thereby we can get the watch history of the entire audience.
+
+Kindly follow the code section to know how i implemented the recommendation system using python.
