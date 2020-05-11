@@ -1,0 +1,42 @@
+import pandas as pd
+df1 = pd.read_csv('H:/group/Playlist_1.csv')
+df2 = pd.read_csv('H:/group/Playlist_2.csv')
+df3 = pd.read_csv('H:/group/Playlist_3.csv')
+df4 = pd.read_csv('H:/group/Playlist_4.csv') ##importing the datasets using pandas
+
+Contains columns : artist_id,album_title,genre,Popularity,mtv_critic,Number_of_times_listened,Watch_time
+
+
+dm1 = pd.merge(df1,df2,on = ['album_title'])
+dm2 = pd.merge(df3,df4,on =  ['album_title'])
+dm3 = pd.merge(dm1,dm2,on = ['album_title'] )
+##merging the playlists with Album title as the common column
+
+dm3['score'] = dm3['Number_of_times_Played_x_x']+dm3['Number_of_times_listened_y_x']+dm3['Number_of_times_listened_x_y']+dm3['Number_of_times_listened_y_y']
+##summation of Number of times the songs were played in each playlist into one column "Score" to know how many times the entire audience has played it
+
+dm3 = dm3.sort_values('score',ascending = False)
+#sorting the data set based on the scores to know which songs were played the highest number of times to know the genre which is most prefered
+
+Playlist_1 = dm3[['artist_id_x_x','album_title','score','genre_x_x','Popularity_x_x']]
+#Including only the columns necessary for further analysis,dropping down "Number of times listened" of individual playlists 
+
+
+
+Playlist_2 = Playlist_1.drop_duplicates(['album_title'])
+#dropping the duplicates after merging.
+
+count = Playlist_2['genre_x_x'].value_counts() 
+#Counting the number of albums in each genre in the common playlist
+
+Playlist_3  =Playlist_2.groupby('genre_x_x')['score'].sum()
+#Calculating how much score all the albums in a particular Genre by summation of their scores to know which genre is most prefered
+
+Genre_sorted = Playlist_3.sort_values(ascending=False)
+# sorting the above result to know that POP is the most prefered by the Group of 4 people in the audience
+
+
+
+
+
+
