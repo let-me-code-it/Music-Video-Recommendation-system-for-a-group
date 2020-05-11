@@ -35,6 +35,19 @@ Playlist_3  =Playlist_2.groupby('genre_x_x')['score'].sum()
 Genre_sorted = Playlist_3.sort_values(ascending=False)
 # sorting the above result to know that POP is the most prefered by the Group of 4 people in the audience
 
+Songs = Playlist_1[Playlist_1['genre_x_x']=='Pop']
+#Filtering the Albums of the genre POP
+
+artist_count = Songs['artist_id_x_x'].value_counts() 
+#Counting the Number of albums made by each artist in POP genre results that 23007 has the most with 2 albums 
+
+df5 = pd.read_csv('H:/group/albums.csv')
+#importing a New song dataset from which we can make recommendations to the audience
+
+Recommendation =df5.loc[(df5['genre']=='Pop')& (df5['artist_id'] ==23007)].sort_values('Watch_time',ascending=False)
+#Recommending songs based on the previous obtained most prefered Genre ,Most prefered composer and watch time 
+Print(Recommendation)
+
 
 
 
